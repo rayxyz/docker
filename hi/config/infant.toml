@@ -1,0 +1,180 @@
+[system]
+dev = true
+
+[log]
+level = 2
+
+[redis]
+address = "192.168.1.240:6379"
+password = "123456"
+
+[beanstalk]
+address = "192.168.1.240:11300"
+
+[tube]
+tyger_wordbook = "tyger_wordbook"
+
+[sql]
+driver = "mysql"
+dsn = "%s@tcp(%s)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+host = "192.168.1.253:3307"
+# host = "192.168.1.241:3306"
+
+[dbkey]
+account = "root:1234"
+common = "root:1234"
+wgy_campus = "root:1234"
+wgy_seating = "root:1234"
+wgy_evaluation = "root:1234"
+# tyger = "martin:123456"
+tyger = "root:1234"
+sdp_db = "root:1234"
+sd_press = "root:1234"
+campus = "root:1234"
+open = "root:1234"
+
+[account]
+db = "sd_user_20170313"
+dbkey = "account"
+
+[applet]
+open = 1230
+tyger = 1234
+comm = 1235
+wgy = 1236
+local=1237
+
+[service]
+account = 11000
+token = 11001
+captcha = 11002
+im = 11003
+upgrade = 11004
+resource = 11005
+campus = 11006
+open = 11007
+order = 11008
+publication = 11009
+bookstore = 11010
+
+tyger_bookshelf = 11100
+tyger_sightword = 11101
+tyger_unitlevel = 11102
+tyger_wordbook = 11103
+
+[host]
+account = "localhost"
+##token = "localhost"
+token = "192.168.1.240"
+captcha = "localhost"
+im = "localhost"
+upgrade = "localhost"
+resource = "localhost"
+campus = "localhost"
+open = "localhost"
+order = "localhost"
+publication = "localhost"
+bookstore = "localhost"
+
+tyger_bookshelf = "localhost"
+tyger_sightword = "localhost"
+tyger_unitlevel = "localhost"
+tyger_wordbook = "localhost"
+
+[token]
+redis_db = 9
+expirehours = 24
+openexpireseconds = 3600
+
+[captcha]
+db = "sd_app_common"
+redis_db = 7
+dbkey = "common"
+
+[wgy_campus]
+db = "sd_schools_new"
+dbkey = "wgy_campus"
+
+[campus]
+db = "sd_schools_new_20170313"
+dbkey = "campus"
+
+[wgy_evaluation]
+db = "sd_plam_class_v2"
+dbkey = "wgy_evaluation"
+
+[wgy_seating]
+db = "sd_schools_seats"
+dbkey = "wgy_seating"
+
+[wgy]
+aes_key = "!Sd@_16#20_@dS!/"
+des_key = "!Sd@_16#"
+
+[im]
+db = "sd_app_common"
+dbkey = "common"
+driver = "easemob"
+easemob_class = 2
+
+[easemob]
+enterprise_id = "test-zander-hxim"
+client_id = "YXA6exQvUGKNEea_nqsb4LQpxA"
+client_secret = "YXA6W4bZDU5FMIx_v7W2KN7UT1AscCg"
+default_password = "123456"
+scheme = "https"
+
+[upgrade]
+db = "sd_app_common"
+dbkey = "common"
+
+[sms]
+captcha_fmt = "验证码为%s。请在%d分钟之内进行验证，过期无效。感谢您对深度陪伴的支持！"
+
+[resource]
+db = "sd_press"
+dbkey = "common"
+
+[cache]
+redis_db = 8
+
+[publication]
+db = "sdp_db"
+dbkey = "sdp_db"
+
+[bookstore]
+db = "sd_press"
+dbkey = "sd_press"
+
+[qiniu]
+accesskey = "FlOuHhYOGakSvFFka9eBRf5emNuGpEcCEZmtNsLd"
+secretkey = "uK5mr2jYDEuZLxuuMZXNCC0VVTcjEV8F9VEoUhmx"
+config_path = "/shendu/etc/storage/qiniu.json"
+# Downtoken有效期, 单位: 秒
+down_token_expires = 3600
+# Uptoken有效期, 单位: 秒
+up_token_expires = 3600
+
+[open]
+db = "sd_open"
+dbkey = "open"
+sdk_secret_key = "voh96tEw5d3itt6Grluvm4LQ4GjtFXK7khjv6j3U"
+
+[tyger_bookshelf]
+db = "sd_open"
+dbkey = "tyger"
+
+[tyger_unitlevel]
+db = "sd_open"
+dbkey = "tyger"
+
+[tyger_wordbook]
+db = "sd_open"
+dbkey = "tyger"
+
+[rank]
+redis_db = 7
+
+[order]
+db = "sd_press"
+dbkey = "sd_press"

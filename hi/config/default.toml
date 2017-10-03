@@ -1,0 +1,846 @@
+# Global configuration file for shendu apps.
+
+version = "0.0.1"
+
+[system]
+dev = true
+chroot = "/shendu/bin"
+sys_stat = false
+
+[beanstalkd]
+uri = "192.168.1.240:11300,192.168.1.240:11300"
+
+[nsq]
+uri = "192.168.1.240:4150"
+p_uri = "192.168.1.240:4150,192.168.1.252:4150"
+c_uri = "192.168.1.240:4161,192.168.1.252:4161"
+
+[cache]
+lru_cache_capacity = 2048
+
+[rpc_pool]
+capacity = 10
+max_capacity = 10
+
+[http]
+unix_socket_dir = "/shendu/var/lib/socket/"
+
+[memcache]
+capacity = 1024
+server = "192.168.1.252:11211"
+local  = "/shendu/var/lib/memcached/memcached.sock"
+
+[logging]
+tube = "topic.system.logging"
+tube_ng = "topic.system.logging.ng"
+email_from = "Gopher <goservice@shenduxuetang.com>"
+email_to = "313004374@qq.com"
+email_cc = ""
+email_subject = "System alert"
+email_pipe = 10
+
+[trace]
+tube = "topic.system.trace"
+enable = true
+
+[sql]
+driver = "mysql"
+max_open_conns = 0
+max_idel_conns = 0
+readonly_conf = "/shendu/etc/sql/readonly.json"
+sdp_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+math_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+pi_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+user_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local"
+press_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local"
+behavior_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+engradio_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+metrics_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local"
+rocket_dsn = "root:1234@tcp(192.168.1.240:3306)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+dup_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+
+app_common_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_app_common?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+
+resx_globals_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_globals?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+resx_basic_yingyu_dsn = "root:1234@tcp(192.168.1.240:3306)/resx_basic_yingyu?strict=true&sql_notes=false&parseTime=true&loc=Local"
+resx_module_yingyu_dsn = "root:1234@tcp(192.168.1.240:3306)/resx_module_yingyu?strict=true&sql_notes=false&parseTime=true&loc=Local"
+resx_publish_yingyu_dsn = "root:1234@tcp(192.168.1.240:3306)/resx_publish_yingyu?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+resx_basic_yuwen_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_basic_yuwen?strict=true&sql_notes=false&parseTime=true&loc=Local"
+resx_module_yuwen_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_module_yuwen?strict=true&sql_notes=false&parseTime=true&loc=Local"
+resx_publish_yuwen_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_publish_yuwen?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+resx_basic_shuxue_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_basic_shuxue?strict=true&sql_notes=false&parseTime=true&loc=Local"
+resx_module_shuxue_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_module_shuxue?strict=true&sql_notes=false&parseTime=true&loc=Local"
+resx_publish_shuxue_dsn = "root:1234@tcp(192.168.1.253:3307)/resx_publish_shuxue?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+app_dsn = "root:1234@tcp(192.168.1.240:3306)/sd_apps?strict=true&sql_notes=false&parseTime=true&loc=Local"
+organization_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local"
+pen_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_dot_matrix?strict=true&sql_notes=false&parseTime=true&loc=Local"
+math_report_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_math_report?strict=true&sql_notes=false&parseTime=true&loc=Local"
+report_dsn = "root:1234@tcp(192.168.1.240:3306)/sd_report_test?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+# NEW english
+english_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_english?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+schools_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_schools_new_20170313?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+smartcampus_smartschool_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_smart_school?strict=true&sql_notes=false&parseTime=true&loc=Local"
+smartcampus_account_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_smart_school?strict=true&sql_notes=false&parseTime=true&loc=Local"
+smartcampus_seating_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_schools_seats?strict=true&sql_notes=false&parseTime=true&loc=Local"
+smartcampus_course_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_schools_courses?strict=true&sql_notes=false&parseTime=true&loc=Local"
+smartcampus_dotmatrix_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_dot_matrix_online_20170607?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+palmcampus_report_dsn = "root:1234@tcp(192.168.1.253:3307)/sd_palm_campus?strict=true&sql_notes=false&parseTime=true&loc=Local"
+palmcampus_variant_dsn = "root:1234@tcp(192.168.1.253:3307)/sdp_db?strict=true&sql_notes=false&parseTime=true&loc=Local"
+
+seating_dsn ="root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8&interpolateParams=true"
+palm_dsn = "root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8&interpolateParams=true"
+
+lecture_dsn="root:1234@tcp(192.168.1.253:3307)/%s?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8&interpolateParams=true"
+
+usercenter_dsn="root:1234@tcp(192.168.1.253:3307)/?strict=true&sql_notes=false&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+
+
+[host]
+account = "192.168.1.240:10001"
+org = "192.168.1.240:10002"
+publication = "192.168.1.252:10003"
+order = "192.168.1.240:10004"
+freetrial = "localhost:10005"
+captcha = "localhost:10006"
+storage = "localhost:10007"
+sms = "localhost:10008"
+upgrade = "localhost:10009"
+publishing = "localhost:10010"
+publishing_v2 = "localhost:10011"
+feedback = "localhost:10013"
+tx = "localhost:10015"
+exchange = "localhost:10016"
+organization = "localhost:10017"
+institution = "localhost:10018"
+im = "localhost:10019"
+rur = "localhost:10020"
+publication_v2 = "192.168.1.252:10021"
+
+# TODO
+tmp_publication = "localhost:40000"
+authenticate = "192.168.1.240:9001"
+app = "localhost:9002"
+pen = "localhost:9003"
+math_account = "127.0.0.1:9101"
+math_study = "localhost:9102"
+math_answersheet = "localhost:9103"
+math_textbook= "localhost:9104"
+math_feedback = "localhost:9105"
+math_lottery = "localhost:9106"
+math_activity = "localhost:9107"
+math_race = "localhost:9108"
+math_credit = "localhost:9109"
+math_wallet = "localhost:9110"
+math_callback = "localhost:8187"
+math_callback_v2 = "localhost:8287"
+
+engradio_account = "localhost:9201"
+engradio_capacity = "localhost:9202"
+engradio_answersheet = "localhost:9203"
+engradio_collection = "localhost:9204"
+engradio_challenge = "localhost:9205"
+engradio_feedback = "localhost:9206"
+engradio_textbook = "localhost:9207"
+engradio_notebook = "localhost:9208"
+engradio_callback = "localhost:8189"
+engradio_callback_v2 = "localhost:8289"
+engradio_lottery = "localhost:9209"
+# engradio_publication = "localhost:9210"
+
+endpoint = "localhost:8081"
+
+rocket_publication_engphase = "localhost:2001"
+rocket_acl = "localhost:2002"
+
+# NEW english
+english_textbook = "localhost:9301"
+english_qrcode = "localhost:9302"
+english_answersheet = "localhost:9303"
+english_publication = "localhost:9304"
+english_challenge = "localhost:9305"
+english_capacity = "localhost:9306"
+english_account = "localhost:9307"
+english_collection = "localhost:9308"
+english_articledata = "localhost:9309"
+english_ques_notebook = "localhost:9310"
+english_word_notebook = "localhost:9311"
+english_sentence_notebook = "localhost:9312"
+
+pi_account = "127.0.0.1:9401"
+pi_study = "localhost:9402"
+pi_textbook= "localhost:9404"
+pi_lottery = "localhost:9406"
+pi_activity = "localhost:9407"
+pi_race = "localhost:9408"
+pi_credit = "localhost:9409"
+pi_wallet = "localhost:9410"
+pi_report = "localhost:9411"
+pi_collection = "localhost:9412"
+pi_wrongnotebook = "localhost:9413"
+
+oralarith = "localhost:20000"
+profiles = "localhost:20001"
+matrix = "localhost:20002"
+
+smartcampus_smartschool = "192.168.1.240:20003"
+campus = "192.168.1.240:20004"
+smartcampus_seating = "192.168.1.240:20005"
+smartcampus_course= "localhost:20006"
+smartcampus_account = "192.168.1.240:20007"
+smartcampus_dotmatrix = "192.168.1.240:20008"
+
+palmcampus_report = "192.168.1.240:21001"
+palmcampus_variant = "192.168.1.240:21002"
+
+palm_evaluation = "localhost:21101"
+palm_seating = "localhost:21102"
+
+
+#lecture
+lecture_listen="localhost:21103"
+
+#formula
+formula_character="localhost:21201"
+
+#usercenter
+usercenter = "localhost:21210"
+
+
+[service]
+# common service
+account      = 10001
+org          = 10002
+publication  = 10003
+# TODO
+tmp_publication  = 40000
+order        = 10004
+freetrial    = 10005
+captcha      = 10006
+storage      = 10007
+sms          = 10008
+upgrade      = 10009
+publishing   = 10010
+publishing_v2   = 10011
+resource_fetcher = 10012
+feedback	 = 10013
+tx = 10015
+exchange = 10016
+organization = 10017
+institution = 10018
+im = 10019
+rur = 10020
+publication_v2 = 10021
+resource_fetcher_v2 = 10022
+
+authenticate         = 9001
+app = 9002
+pen = 9003
+
+# math service
+math_account     = 9101
+math_study       = 9102
+math_answersheet = 9103
+math_textbook    = 9104
+math_feedback    = 9105
+math_lottery     = 9106
+math_activity    = 9107
+math_race        = 9108
+math_credit		 = 9109
+math_wallet		 = 9110
+
+# engradio service
+engradio_account     = 9201
+engradio_capacity	 = 9202
+engradio_answersheet = 9203
+engradio_collection	 = 9204
+engradio_challenge	 = 9205
+engradio_feedback = 9206
+engradio_textbook = 9207
+engradio_notebook = 9208
+engradio_lottery = 9209
+# engradio_publication = 9210
+
+# rocket service
+rocket = 2000
+rocket_publication_engphase = 2001
+rocket_acl = 2002
+
+# NEW english service
+english_textbook = 9301
+english_qrcode = 9302
+english_answersheet = 9303
+english_publication = 9304
+english_challenge = 9305
+english_capacity = 9306
+english_account = 9307
+english_collection = 9308
+english_articledata = 9309
+english_ques_notebook = 9310
+english_word_notebook = 9311
+english_sentence_notebook = 9312
+
+pi_account     = 9401
+pi_study       = 9402
+pi_textbook    = 9404
+pi_feedback    = 9405
+pi_lottery     = 9406
+pi_activity    = 9407
+pi_race        = 9408
+pi_credit		 = 9409
+pi_wallet		 = 9410
+pi_report		 = 9411
+pi_collection    = 9412
+pi_wrongnotebook  = 9413
+
+# oralarith
+oralarith = 20000
+profiles = 20001
+
+matrix = 20002
+smartcampus_smartschool = 20003
+campus = 20004
+smartcampus_seating = 20005
+smartcampus_course = 20006
+smartcampus_account = 20007
+smartcampus_dotmatrix = 20008
+
+palmcampus_report = 21001
+palmcampus_variant = 21002
+
+palm_evaluation = 21101
+palm_seating=21102
+
+#lecture
+lecture_listen=21103
+
+#formula
+formula_character=21201
+
+#usercenter
+usercenter = 21210
+
+
+[applet]
+endpoint     = 8081
+math = 8087
+math_callback = 8187
+math_callback_v2 = 8287
+sso = 8088
+engradio = 8089
+engradio_callback = 8189
+engradio_callback_v2 = 8289
+wordtool = 8090
+sso_v2 = 8091
+authorization = 8092
+metrics = 8093
+ordinary = 8094
+internal = 8095
+wordtool_v2 = 8097
+app = 8098
+english = 8099
+latticepen = 8100
+jiaoxueyi = 8101
+smartcampus = 8102
+palmcampus = 8103
+pi = 8104
+
+palm = 8105
+inward_campusradio = 31001
+
+#lecture
+lecture=8106
+
+#smartcampus_v2
+smartcampus_v2 = 8107
+formula = 8108
+
+#usercenter
+usercenter = 8110
+
+[endpoint]
+proxy_config_path = "/shendu/etc/endpoint/proxy.json"
+default_scope = "__internal_api"
+max_connection = 8024
+
+[indexing]
+storage_dir = "/shendu/indexing/storage"
+
+[authenticate]
+db_name = "sd_authenticate"
+default_expires = 7776000
+
+[account]
+db_name = "sd_user_20170607"
+default_passwd = "123456"
+redis_addr = "localhost:6379"
+redis_password = "123456"
+redis_db = 14
+
+[org]
+db_name = "sd_press_online_20170503"
+cache_filling_interval = 10
+
+[math]
+# 数学周报应用ID，applications表
+appid = 10101
+# 出版资源创建者ID，固定分配
+resource_created_by = 10013
+resource_created_by_name = "北京出版社管理员"
+# 出版社ID，固定分配
+publisher_id = 1
+precise_name = "变式训练"
+practice_name = "修炼"
+challenge_name = "闯关"
+study_folder_name = "自习课"
+periodical_folder_name = "答题卡"
+challenge_random_n = 5
+subject_name = "数学"
+max_connection = 8024
+study_product_id = 2
+periodical_product_id = 1
+default_deadline = 604800
+super_user_conf = "/shendu/etc/math/super.json"
+books_api = "http://120.24.213.66:8086/math/v1/books/"
+cache_size = 1073741824
+
+[math_fallback]
+exam_conf = "/shendu/etc/math/fallback/answersheet.json"
+
+[pi]
+precise_name = "变式训练"
+practice_name = "修炼"
+challenge_name = "闯关"
+study_folder_name = "自习课"
+challenge_random_n = 5
+subject_name = "数学"
+max_connection = 8024
+# FIXME
+study_product_id = 2
+default_deadline = 604800
+super_user_conf = "/shendu/etc/math/super.json"
+books_api = "http://192.168.1.240:8104/pi/v1/books/"
+cache_size = 1073741824
+
+assignment_report_tube = "topic.pi.assignment.report"
+
+[engradio]
+subject_name = "英语"
+subject_id = 3
+max_connection = 8024
+# 同步练
+tbl_product_id = 3
+# 课课练
+kkl_product_id = 4
+# 掌中报
+zzb_product_id = 5
+
+[english]
+max_connection = 8024
+
+[wordtool]
+appid = 10104
+question_default_folder_id = 4
+page_default_folder_id = 5
+video_default_folder_id = 8
+audio_default_folder_id = 9
+image_default_folder_id = 10
+document_default_folder_id = 11
+max_connection = 100000
+
+[resource]
+db_name = "sdp_db"
+filling_cache = false
+cache_filling_interval = 10
+cache_check_point_conf = "/shendu/etc/resource/checkpoint.json"
+
+[math_account]
+db_name = "sd_math"
+ranking_conf_path = "/shendu/etc/math/ranking.json"
+
+[math_answersheet]
+db_name = "sd_math"
+dup_db_name = "sd_math_report"
+db = 14
+redis_addr = "localhost:6379"
+redis_password = "123456"
+
+[math_study]
+db_name = "sd_math"
+credit_per_knowledge = 30
+points_per_knowledge = 100
+credit_per_challenge = 10
+points_per_challenge = 30
+credit_per_round = 1000
+
+[math_textbook]
+db_name = "sd_math"
+
+[math_feedback]
+db_name = "sd_math"
+
+[math_lottery]
+db_name = "sd_math"
+lottery_conf_path = "/shendu/etc/math/lottery.json"
+vip_scholarship_conf_path = "/shendu/etc/math/lottery/scholarship_vip.json"
+non_vip_scholarship_conf_path = "/shendu/etc/math/lottery/scholarship_non_vip.json"
+db = 14
+redis_addr = "localhost:6379"
+redis_password = "123456"
+
+[math_activity]
+db_name = "sd_math"
+
+[math_race]
+db_name = "sd_math"
+data_version = 3
+
+[math_credit]
+db_name = "sd_math"
+
+[math_wallet]
+db_name = "sd_math"
+
+[engradio_account]
+db_name = "sd_eng_radio"
+
+[engradio_capacity]
+db_name = "sd_eng_radio"
+
+[engradio_answersheet]
+db_name = "sd_eng_radio"
+auto_unlock_delay = 10 # 单位为秒
+
+[engradio_collection]
+db_name = "sd_eng_radio"
+
+[engradio_challenge]
+db_name = "sd_eng_radio"
+
+[engradio_feedback]
+db_name = "sd_eng_radio"
+
+[engradio_textbook]
+db_name = "sd_eng_radio"
+
+[engradio_notebook]
+db_name = "sd_eng_radio"
+
+[engradio_lottery]
+db_name = "sd_eng_radio"
+lottery_conf_path = "/shendu/etc/engradio/lottery.json"
+db = 14
+redis_addr = "localhost:6379"
+redis_password = "123456"
+
+[captcha]
+db_name = "sd_user_20170313"
+interval = 60
+
+[qiniu]
+accesskey = "FlOuHhYOGakSvFFka9eBRf5emNuGpEcCEZmtNsLd"
+secretkey = "uK5mr2jYDEuZLxuuMZXNCC0VVTcjEV8F9VEoUhmx"
+config_path = "/shendu/etc/storage/qiniu.json"
+# Downtoken有效期, 单位: 秒
+down_token_expires = 3600
+# Uptoken有效期, 单位: 秒
+up_token_expires = 3600
+
+[sms]
+sn = "SDK-666-010-03577"
+pwd = "898228"
+sign= "深度陪伴"
+
+captcha_fmt = "验证码为%s。请在%d分钟之内进行验证，过期无效。感谢您对深度陪伴的支持！"
+# 验证码有效期，单位: 分钟
+captcha_expires = 5
+# 允许app再次发起验证码请求的间隔时间, 单位: 秒
+captcha_interval = 60
+
+[freetrial]
+db_name = "sd_press_ol_20151104"
+freetrial_note_fmt = "您的账号【%s】还有%d天的试用期，您只需要支付%.2f元就可以畅享%s"
+ordered_note_fmt = "您的账号【%s】还有%d天即将到期，请您及时续费"
+order_delay_note_fmt = "您的账号【%s】已过期，请您及时续费"
+freetrial_delay_note_fmt = "您的账号【%s】试用已过期，您只需要支付%.2f元就可以畅享%s"
+perm_note_fmt = "您可以免费体验，所有版本第一章免费哦！立即支付，畅享自习课"
+
+[order]
+db_name = "sd_press_ol_20151104"
+
+[redis]
+addr = "192.168.1.240:6379"
+password = "123456"
+db = 15
+
+[redis2]
+addr = "192.168.1.252:6379"
+password = "123456"
+db = 12
+
+[taskredis]
+addr = "192.168.1.240:6379"
+password = "123456"
+db = 16
+
+[redis_usercenter]
+addr = "192.168.1.240:6379"
+###addr = "127.0.0.1:6379"
+password = "123456"
+db = 5
+
+[upgrade]
+db_name = "sd_eng_radio"
+
+[influxdb]
+user = "shendu"
+pass = "shendu@2015!"
+port = 7076
+host = "192.168.1.252"
+db_name = "golang_metrics"
+enable = false
+metrics_collect_interval = 60
+
+[influxdb2]
+user = "shendu"
+pass = "shendu@2015!"
+port = 7076
+host = "192.168.1.252"
+db_name = "golang_metrics_v2"
+
+[email]
+user = "goservice@shenduxuetang.com"
+pass = "Sd_mail_01_go"
+smtp_port = 25
+smtp_domain = "smtp.exmail.qq.com"
+uri = "192.168.1.252:11300,192.168.1.200:11300"
+tube = "topic.system.email"
+
+[publication]
+db_name = "sdp_db"
+
+[publication_v2]
+db_name = "sdp_db_online_20170607"
+
+[publishing]
+db_name = "sdp_db"
+
+[publishing_v2]
+db_name = "sdp_db"
+
+[app]
+max_connection = 100000
+
+[cron]
+publication = "0 0 0 * * *,0 0 6 * * *,0 0 12 * * *,0 0 18 * * *"
+
+[formula]
+# image_domain = "http://m100.shenduxuetang.com"
+# bucket_name = "sd-math"
+# accesskey = "FlOuHhYOGakSvFFka9eBRf5emNuGpEcCEZmtNsLd"
+# secretkey = "uK5mr2jYDEuZLxuuMZXNCC0VVTcjEV8F9VEoUhmx"
+# upload_proxy = "http://10.169.99.10:6054/formula"
+image_domain = "http://7xk2gn.com1.z0.glb.clouddn.com"
+bucket_name = "math"
+accesskey = "aqVUz1GlzzSd-8b0aJHI_7Fh0xxp-77ZE4H7kbhw"
+secretkey = "lMotUWCVsWU1H4UvaWK8QrIoQnOB_83Fkq6F0SKD"
+upload_proxy = "http://localhost:6054/formula"
+
+[sso]
+max_connection = 100000
+grades_config_path = "/shendu/etc/sso/grades.json"
+collection_classes_config_path = "/shendu/etc/sso/classes.json"
+oauth2v2 = "http://192.168.1.240:8086/oauth2/token/v2?client_id=api_test_client&client_secret=YViRpKe8SA-6P9_XrUwJ7w&scope=__internal_api&grant_type=password&username=%s&password=%s&extra=%s"
+parentOAuth = "http://192.168.1.200:8086/oauth2/token/v2?client_id=api_test_client&client_secret=YViRpKe8SA-6P9_XrUwJ7w&scope=parent&grant_type=password&username=%s&password=%s&extra=%s"
+
+[behavior]
+tube = "topic.system.behavior"
+tube_ng = "topic.system.behavior.ng"
+uri = "192.168.1.252:11300"
+cron = "0 0 0 1 * *"
+db_name = "sd_behavior"
+
+[authorization]
+max_connection = 100000
+db = 14
+redis_addr = "localhost:6379"
+redis_password = "123456"
+default_expires = 2592000
+authorization_expires = 300
+
+[apptrace]
+collector_addr = "192.168.1.240:5000"
+
+[jpush]
+apns_production = false
+
+engradio_appkey = "b7bedc9f43f9a18db6f13b9b"
+engradio_appsecret = "4492c9817a2e282587a66018"
+happylearning_appkey = "1f9e57fe4c83de50099e7d9b"
+happylearning_appsecret = "550a80284c1e419c1879e2ef"
+
+english_appkey = "b7bedc9f43f9a18db6f13b9b"
+english_appsecret = "4492c9817a2e282587a66018"
+palmcampus_appkey = "fe0786a38935abea4338075b"
+palmcampus_appsecret = "9ecf6a7d742646af31835d0f"
+
+[event]
+servers = "nats://192.168.1.252:4222"
+
+[metrics]
+max_connection = 100000
+db_name = "sd_metrics"
+influxdb = "sd_metrics"
+
+[feedback]
+# 引导语
+engradio_lead_format = "%s，你好！使用过程中，如果你遇到了问题，或者有好的建议都可以跟我说哦！"
+# 首次反馈自动回复
+engradio_first_autoreply = "收到！留个电话号码给我们吧大侠！程序猿哥哥需要你的帮助哦！"
+# 非首次反馈自动回复
+engradio_non_first_autoreply = "收到~我们会尽快回复哒~"
+# 引导语
+math_lead_format = "%s，你好！使用过程中，如果你遇到了问题，或者有好的建议都可以跟我说哦！"
+# 首次反馈自动回复
+math_first_autoreply = "收到！留个电话号码给我们吧大侠！程序猿哥哥需要你的帮助哦！"
+# 非首次反馈自动回复
+math_non_first_autoreply = "收到~我们会尽快回复哒~"
+
+[ordinary]
+max_connection = 8024
+
+[internal]
+max_connection = 8024
+
+[rocket]
+upload_dir = "/shendu/rocket/upload/"
+max_connection = 1024
+dist_path = "/src/"
+static_path = "/shendu/rocket/static/"
+upload_proxy = "http://localhost:6054/formula"
+
+[rocket_publication_engphase]
+db_name = "sd_rocket"
+concurrent = 1
+working_directory = "/shendu/rocket/audio/"
+bucket_name = "sdres-audio20"
+domain_prefix = "http://a20.shenduxuetang.com/"
+
+[rocket_acl]
+db_name = "sd_rocket"
+
+[tx]
+db_name = "sd_app_common"
+
+[exchange]
+recent = 20
+db_name = "sd_app_common"
+
+[organization]
+db_name = "sd_organizations_20170407"
+
+[latticepen]
+max_connection = 1024
+
+[jiaoxueyi]
+max_connection = 1024
+
+[english_answersheet]
+auto_unlock_delay = 10 # 单位为秒
+
+[reward]
+tube = "topic.business.reward"
+
+[smartcampus]
+max_connection = 8024
+archive_serve_tube = "topic.smartcampus.archive.serve"
+archive_notify_tube_format = "topic.smartcampus.archive.notify."
+
+[palmcampus]
+assignment_report_tube = "topic.palmcampus.assignment.report"
+max_connection = 8024
+week_assignment_report_cron = "0 0 18 * * 6"
+
+[aliyun]
+mns_endpoint = "http://1704876976739116.mns.cn-shenzhen.aliyuncs.com"
+mns_access_key = "jbT4NeCTcYJ3IX85"
+mns_access_key_secret = "1AWTgcCy35R556FWlaKUiXybWIHiTy"
+
+[im]
+driver = "easemob"
+tencent_class = 1
+easemob_class = 2
+
+[tencent]
+im_sdk_app_id = "1400011972"
+im_private_key_conf = "/shendu/etc/tencent/im/private_key"
+
+[easemob]
+enterprise_id = "test-zander-hxim-admin"
+client_id = "YXA6exQvUGKNEea_nqsb4LQpxA"
+client_secret = "YXA6W4bZDU5FMIx_v7W2KN7UT1AscCg"
+default_password = "123456"
+scheme = "http"
+
+[pi_account]
+db_name = "sd_pi"
+ranking_conf_path = "/shendu/etc/pi/ranking.json"
+
+[pi_study]
+db_name = "sd_pi"
+credit_per_knowledge = 30
+points_per_knowledge = 100
+credit_per_challenge = 10
+points_per_challenge = 30
+credit_per_round = 1000
+
+[pi_textbook]
+db_name = "sd_pi"
+
+[pi_lottery]
+db_name = "sd_pi"
+lottery_conf_path = "/shendu/etc/pi/lottery.json"
+vip_scholarship_conf_path = "/shendu/etc/pi/lottery/scholarship_vip.json"
+non_vip_scholarship_conf_path = "/shendu/etc/pi/lottery/scholarship_non_vip.json"
+db = 14
+redis_addr = "localhost:6379"
+redis_password = "123456"
+
+[pi_activity]
+db_name = "sd_pi"
+
+[pi_credit]
+db_name = "sd_pi"
+
+[pi_wallet]
+db_name = "sd_pi"
+
+[pi_report]
+db_name = "sd_pi"
+
+[pi_collection]
+db_name = "sd_pi"
+
+[pi_wrongnotebook]
+db_name = "sd_pi"
+
+[palm_evaluation]
+db_name="sd_plam_class_v2_20170407"
+
+[palm_seating]
+db_name = "sd_schools_seats"
+
+[lecture_listen]
+db_name = "sd_class_evaluation"
+
+[usercenter]
+db_name_user = "sd_user_20170607"
+db_name_schools = "sd_schools_20170607"
+

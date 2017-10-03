@@ -1,0 +1,18 @@
+{
+	"rdsrafeeyrafeey.mysql.rds.aliyuncs.com:3306": [
+		{
+			"weight": 30,
+			"max_open_conns": 30,
+			"max_idel_conns": 30,
+			"domain": "rds55d6r4945c0r0kc31.mysql.rds.aliyuncs.com:3306",
+			"description": "阿里云MYSQL只读实例，配置和主实例相同，权重高"
+		},
+		{
+			"weight": 70,
+			"max_open_conns": 40,
+			"max_idel_conns": 40,
+			"domain": "rdsl15285jkn17081bml.mysql.rds.aliyuncs.com:3306",
+			"description": "阿里云MYSQL只读实例，配置和主实例相差一半，权重低"
+		}
+	]
+}
